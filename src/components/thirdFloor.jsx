@@ -7,7 +7,9 @@ class ThirdFloor extends Component {
     return (
       <div className="blocktocenter">
         <div className="third-floor">
-          <div className="add">Add Stock</div>
+          <div className="add" onClick={this.props.onAdd}>
+            Add Stock
+          </div>
           <div className="btn-search">Search</div>
           <div className="search-box">
             <input

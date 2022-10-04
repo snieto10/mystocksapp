@@ -35,4 +35,9 @@
   font-size: 0.8rem;
   border: none;
   font-weight: 100;
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  background: rgb(248, 31, 28);
 }

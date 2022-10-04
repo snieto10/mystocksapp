@@ -18,6 +18,11 @@
   box-shadow: 0 0 10px #dad8d8;
   color: white;
   font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.add:hover {
+  background: rgb(15, 146, 15);
 }
 .btn-search {
   margin-left: 10px;
@@ -27,6 +32,11 @@
   box-shadow: 0 0 10px #dad8d8;
   color: white;
   font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.btn-search:hover {
+  background: rgb(37, 40, 254);
 }
 
 .search {
