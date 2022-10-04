@@ -5,7 +5,7 @@ const Menu = () => {
   return (
     <div className="blockcenter">
       <div className="block-menu">
-        <div className="mystock">My Stocks</div>
+        <div className="mystock"></div>
         <div>
           <ul>
             <li className="menu-list">All Industries</li>
