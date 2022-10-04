@@ -1,7 +1,12 @@
+import React, { Component } from "react";
+import Title from "./components/title";
 import "./App.css";
 
-function App() {
-  return <h1>Hello</h1>;
+class App extends Component {
+  state = {};
+  render() {
+    return <Title />;
+  }
 }
 
 export default App;
