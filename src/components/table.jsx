@@ -26,7 +26,9 @@ const Table = ({ stocks }) => {
                 <td>{stock.qty}</td>
                 <td>{stock.price}</td>
                 <td>{stock.qty * stock.price}</td>
-                <td></td>
+                <td>
+                  <button className="btn-red">Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

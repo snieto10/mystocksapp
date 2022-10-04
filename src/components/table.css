@@ -26,3 +26,13 @@
 .toprow {
   border-bottom: 3px solid gray;
 }
+
+.btn-red {
+  padding: 0.4rem 0.7rem;
+  background: rgb(151, 27, 25);
+  border-radius: 3px;
+  color: white;
+  font-size: 0.8rem;
+  border: none;
+  font-weight: 100;
+}
