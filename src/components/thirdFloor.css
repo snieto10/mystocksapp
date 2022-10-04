@@ -22,7 +22,7 @@
 .btn-search {
   margin-left: 10px;
   padding: 0.5rem 2rem;
-  background: rgb(60, 139, 60);
+  background: rgb(38, 41, 202);
   border-radius: 8px;
   box-shadow: 0 0 10px #dad8d8;
   color: white;
@@ -33,13 +33,13 @@
   box-shadow: 0 0 10px #dad8d8;
   border: none;
   width: 100%;
-  margin: 0 10px 0 10px;
+  margin: 0 3px 0 3px;
   height: 30px;
   border-radius: 8px;
   outline: none;
 }
 .search-box {
   border: none;
-  margin: 0 40px 0 10px;
+  margin: 0 3px 0 3px;
   width: 200px;
 }
