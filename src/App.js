@@ -10,7 +10,7 @@ import AddStock from "./components/addStock";
 class App extends Component {
   state = {
     stock: stocks,
-    components: [],
+    addStock: false,
   };
 
   handleDelete = (sto) => {
@@ -19,19 +19,33 @@ class App extends Component {
   };
 
   handleAddStock = () => {
-    console.log("add stock");
+    let addStock = this.state.addStock;
+    addStock = !addStock;
+    this.setState({ addStock });
   };
   render() {
-    const { stock } = this.state;
+    const { stock, addStock } = this.state;
     const { handleDelete } = this;
-    return (
-      <>
-        <Title key={1} />
-        <ThirdFloor key={2} onAdd={this.handleAddStock} />
-        <Menu key={4} />
-        <Table stocks={stock} onDelete={handleDelete} />
-      </>
-    );
+
+    if (!addStock)
+      return (
+        <>
+          <Title />
+          <ThirdFloor onAdd={this.handleAddStock} />
+          <Menu />
+          <Table stocks={stock} onDelete={handleDelete} />
+        </>
+      );
+    if (addStock)
+      return (
+        <>
+          <Title />
+          <ThirdFloor onAdd={this.handleAddStock} />
+          <AddStock />
+          <Menu />
+          <Table stocks={stock} onDelete={handleDelete} />
+        </>
+      );
   }
 }
 
