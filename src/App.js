@@ -23,15 +23,6 @@ class App extends Component {
     addStock = !addStock;
     this.setState({ addStock });
   };
-
-  handleChange = (e) => {
-    console.log(e);
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   render() {
     const { stock, addStock } = this.state;
     const { handleDelete } = this;
@@ -50,11 +41,7 @@ class App extends Component {
         <>
           <Title />
           <ThirdFloor onAdd={this.handleAddStock} />
-          <AddStock
-            onChange={this.handleChange}
-            onSubmit={this.handleSubmit}
-            onAdd={this.handleAddStock}
-          />
+          <AddStock />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
         </>
