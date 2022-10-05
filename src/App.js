@@ -10,7 +10,7 @@ import AddStock from "./components/addStock";
 class App extends Component {
   state = {
     stock: stocks,
-    components: [],
+    addStock: false,
   };
 
   handleDelete = (sto) => {
@@ -19,10 +19,12 @@ class App extends Component {
   };
 
   handleAddStock = () => {
-    console.log("add stock");
+    let addStock = this.state.addStock;
+    addStock = !addStock;
+    this.setState({ addStock });
   };
   render() {
-    const { stock } = this.state;
+    const { stock, addStock } = this.state;
     const { handleDelete } = this;
 
     if (!addStock)
