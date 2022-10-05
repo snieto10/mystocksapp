@@ -23,7 +23,6 @@ class App extends Component {
     addStock = !addStock;
     this.setState({ addStock });
   };
-
   render() {
     const { stock, addStock } = this.state;
     const { handleDelete } = this;
