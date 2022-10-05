@@ -2,19 +2,26 @@ import React from "react";
 import "./addStock.css";
 
 class AddStock extends React.Component {
+  handleChange = (e) => {
+    console.log("isworking");
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
   render() {
     return (
       <div className="fullpage">
         <div className="addstock">
           <div className="box">
-            <form onSubmit={this.props.onSubmit}>
+            <form onSubmit={this.handleSubmit}>
               <input
                 className="therealinput"
                 type="text"
                 id="stockSticker"
                 name="stockSticker"
                 placeholder="Sticker"
-                onChange={this.props.onChange}
+                onChange={this.handleChange}
               ></input>
               <br />
               <input
