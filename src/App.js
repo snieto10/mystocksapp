@@ -18,7 +18,14 @@ class App extends Component {
     this.setState({ stock });
   };
 
-  handleAddStock = () => {
+  handleAddStock = (newStock) => {
+    let addStock = this.state.addStock;
+    addStock = !addStock;
+    let stock = [...this.state.stock];
+    stock.push(newStock);
+    this.setState({ stock, addStock });
+  };
+  handleOpen = () => {
     let addStock = this.state.addStock;
     addStock = !addStock;
     this.setState({ addStock });
@@ -31,7 +38,7 @@ class App extends Component {
       return (
         <>
           <Title />
-          <ThirdFloor onAdd={this.handleAddStock} />
+          <ThirdFloor onOpen={this.handleOpen} />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
         </>
