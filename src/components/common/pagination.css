@@ -16,6 +16,11 @@
   background: white;
 }
 
+.active {
+  background-color: rgb(38, 41, 202);
+  color: white;
+}
+
 .pagination:hover {
   background-color: rgb(38, 41, 202);
   color: white;

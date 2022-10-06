@@ -4,7 +4,6 @@ import "./pagination.css";
 
 const Pagination = (props) => {
   const { totalLines, linesPerPage, onPageChange, currentPage } = props;
-  console.log(currentPage);
   let pagesCount = Math.ceil(totalLines / linesPerPage);
   let pages = _.range(1, pagesCount + 1);
   if (pagesCount === 1) return null;
@@ -13,7 +12,11 @@ const Pagination = (props) => {
     <>
       <div className="pagination-center">
         {pages.map((p) => (
-          <div key={p} onClick={() => onPageChange(p)} className="pagination">
+          <div
+            key={p}
+            onClick={() => onPageChange(p)}
+            className={p === currentPage ? "pagination active" : "pagination"}
+          >
             {p}
           </div>
         ))}
