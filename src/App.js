@@ -13,6 +13,7 @@ class App extends Component {
     stock: stocks,
     addStock: false,
     linesPerPage: 2,
+    currentPage: 1,
   };
 
   handleDelete = (sto) => {
@@ -34,13 +35,12 @@ class App extends Component {
   };
 
   handlePageChange = (page) => {
-    console.log(page);
+    this.setState({ currentPage: page });
   };
 
   render() {
-    const { stock, addStock, linesPerPage } = this.state;
+    const { stock, addStock, linesPerPage, currentPage } = this.state;
     const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
-
     if (!addStock)
       return (
         <>
@@ -52,6 +52,7 @@ class App extends Component {
             totalLines={stock.length}
             linesPerPage={linesPerPage}
             onPageChange={handlePageChange}
+            currentPage={currentPage}
           />
         </>
       );
@@ -67,6 +68,7 @@ class App extends Component {
             totalLines={stock.length}
             linesPerPage={linesPerPage}
             onPageChange={handlePageChange}
+            currentPage={currentPage}
           />
         </>
       );
