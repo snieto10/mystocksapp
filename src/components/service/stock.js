@@ -1,4 +1,4 @@
-export const stocks = [
+export let stocks = [
   {
     stock: "APPL",
     companyName: "Apple Company",
