@@ -39,19 +39,19 @@ class App extends Component {
 
   render() {
     const { stock, addStock, linesPerPage } = this.state;
-    const { handleDelete } = this;
+    const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
 
     if (!addStock)
       return (
         <>
           <Title />
-          <ThirdFloor onOpen={this.handleOpen} />
+          <ThirdFloor onOpen={handleOpen} />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
           <Pagination
             totalLines={stock.length}
             linesPerPage={linesPerPage}
-            onPageChange={this.handlePageChange}
+            onPageChange={handlePageChange}
           />
         </>
       );
@@ -59,14 +59,14 @@ class App extends Component {
       return (
         <>
           <Title />
-          <ThirdFloor onAdd={this.handleAddStock} />
-          <AddStock onAdd={this.handleAddStock} />
+          <ThirdFloor onAdd={handleAddStock} />
+          <AddStock onAdd={handleAddStock} />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
           <Pagination
             totalLines={stock.length}
             linesPerPage={linesPerPage}
-            onPageChange={this.handlePageChange}
+            onPageChange={handlePageChange}
           />
         </>
       );
