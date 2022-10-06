@@ -1,0 +1,22 @@
+.pagination-center {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  border: solid 1px gray;
+  width: 20px;
+  height: 20px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: white;
+}
+
+.pagination:hover {
+  background-color: rgb(38, 41, 202);
+  color: white;
+}

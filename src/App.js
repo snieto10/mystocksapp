@@ -3,14 +3,16 @@ import Title from "./components/title";
 import Menu from "./components/menu";
 import ThirdFloor from "./components/thirdFloor";
 import Table from "./components/table";
+import AddStock from "./components/addStock";
+import Pagination from "./components/common/pagination";
 import { stocks } from "./components/service/stock";
 import "./App.css";
-import AddStock from "./components/addStock";
 
 class App extends Component {
   state = {
     stock: stocks,
     addStock: false,
+    linesPerPage: 2,
   };
 
   handleDelete = (sto) => {
@@ -30,8 +32,13 @@ class App extends Component {
     addStock = !addStock;
     this.setState({ addStock });
   };
+
+  handlePageChange = (page) => {
+    console.log(page);
+  };
+
   render() {
-    const { stock, addStock } = this.state;
+    const { stock, addStock, linesPerPage } = this.state;
     const { handleDelete } = this;
 
     if (!addStock)
@@ -41,6 +48,11 @@ class App extends Component {
           <ThirdFloor onOpen={this.handleOpen} />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
+          <Pagination
+            totalLines={stock.length}
+            linesPerPage={linesPerPage}
+            onPageChange={this.handlePageChange}
+          />
         </>
       );
     if (addStock)
@@ -51,6 +63,11 @@ class App extends Component {
           <AddStock onAdd={this.handleAddStock} />
           <Menu />
           <Table stocks={stock} onDelete={handleDelete} />
+          <Pagination
+            totalLines={stock.length}
+            linesPerPage={linesPerPage}
+            onPageChange={this.handlePageChange}
+          />
         </>
       );
   }
