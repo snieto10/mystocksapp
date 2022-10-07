@@ -41,17 +41,18 @@ class App extends Component {
   };
 
   handleFilter = (i) => {
-    this.setState({ industry: i });
+    this.setState({ industry: i, currentPage: 1 });
   };
 
   render() {
     const { stock, addStock, linesPerPage, currentPage, industry } = this.state;
     const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
 
-    const filtering = stock.filter((fil) => fil.industry === industry);
-    console.log(filtering);
+    let filtering = stock;
+    if (industry) filtering = stock.filter((fil) => fil.industry === industry);
 
-    const stocks = paginate(stock, currentPage, linesPerPage);
+    let stocks = paginate(filtering, currentPage, linesPerPage);
+
     if (!addStock)
       return (
         <>
@@ -60,7 +61,7 @@ class App extends Component {
           <Menu onFilter={this.handleFilter} />
           <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
-            totalLines={stock.length}
+            totalLines={filtering.length}
             linesPerPage={linesPerPage}
             onPageChange={handlePageChange}
             currentPage={currentPage}
@@ -76,7 +77,7 @@ class App extends Component {
           <Menu onFilter={this.handleFilter} />
           <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
-            totalLines={stock.length}
+            totalLines={filtering.length}
             linesPerPage={linesPerPage}
             onPageChange={handlePageChange}
             currentPage={currentPage}
