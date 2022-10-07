@@ -44,6 +44,11 @@ class App extends Component {
     this.setState({ industry: i, currentPage: 1 });
   };
 
+  handleAllfilter = () => {
+    console.log("hi");
+    this.setState({ industry: "" });
+  };
+
   render() {
     const { stock, addStock, linesPerPage, currentPage, industry } = this.state;
     const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
@@ -58,7 +63,7 @@ class App extends Component {
         <>
           <Title />
           <ThirdFloor onOpen={handleOpen} />
-          <Menu onFilter={this.handleFilter} />
+          <Menu onFilter={this.handleFilter} allFilter={this.handleAllfilter} />
           <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
             totalLines={filtering.length}
@@ -74,7 +79,7 @@ class App extends Component {
           <Title />
           <ThirdFloor onAdd={handleAddStock} />
           <AddStock onAdd={handleAddStock} />
-          <Menu onFilter={this.handleFilter} />
+          <Menu onFilter={this.handleFilter} allfilter={this.handleAllfilter} />
           <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
             totalLines={filtering.length}
