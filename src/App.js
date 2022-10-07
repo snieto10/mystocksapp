@@ -6,13 +6,14 @@ import Table from "./components/table";
 import AddStock from "./components/addStock";
 import Pagination from "./components/common/pagination";
 import { stocks } from "./components/service/stock";
+import { paginate } from "./utils/paginate";
 import "./App.css";
 
 class App extends Component {
   state = {
     stock: stocks,
     addStock: false,
-    linesPerPage: 2,
+    linesPerPage: 6,
     currentPage: 1,
   };
 
@@ -41,13 +42,16 @@ class App extends Component {
   render() {
     const { stock, addStock, linesPerPage, currentPage } = this.state;
     const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
+
+    const stocks = paginate(stock, currentPage, linesPerPage);
+
     if (!addStock)
       return (
         <>
           <Title />
           <ThirdFloor onOpen={handleOpen} />
           <Menu />
-          <Table stocks={stock} onDelete={handleDelete} />
+          <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
             totalLines={stock.length}
             linesPerPage={linesPerPage}
@@ -63,7 +67,7 @@ class App extends Component {
           <ThirdFloor onAdd={handleAddStock} />
           <AddStock onAdd={handleAddStock} />
           <Menu />
-          <Table stocks={stock} onDelete={handleDelete} />
+          <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
             totalLines={stock.length}
             linesPerPage={linesPerPage}
