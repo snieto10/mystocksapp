@@ -45,8 +45,17 @@ class App extends Component {
   };
 
   handleAllfilter = () => {
-    console.log("hi");
     this.setState({ industry: "" });
+  };
+
+  handleSort = (t) => {
+    const stock = [...this.state.stock];
+    stock.sort(function (a, b) {
+      if (a.stock < b.stock) return -1;
+      if (a.stock > b.stock) return 0;
+    });
+    console.log(t);
+    this.setState({ stock });
   };
 
   render() {
@@ -64,7 +73,11 @@ class App extends Component {
           <Title />
           <ThirdFloor onOpen={handleOpen} />
           <Menu onFilter={this.handleFilter} allFilter={this.handleAllfilter} />
-          <Table stocks={stocks} onDelete={handleDelete} />
+          <Table
+            stocks={stocks}
+            onDelete={handleDelete}
+            onSort={this.handleSort}
+          />
           <Pagination
             totalLines={filtering.length}
             linesPerPage={linesPerPage}

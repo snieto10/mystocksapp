@@ -2,22 +2,30 @@ import React, { Component } from "react";
 import "./table.css";
 
 class Table extends Component {
-  state = {};
+  state = {
+    tableTitles: [
+      "Stock",
+      "Company Name",
+      "Industry",
+      "Qty",
+      "Price",
+      "Total Value",
+      "",
+    ],
+  };
   render() {
-    const { stocks, onDelete } = this.props;
+    const { stocks, onDelete, onSort } = this.props;
     return (
       <div className="blockcenter">
         <div className="block1">
           <table className="stock-list">
             <thead>
               <tr>
-                <th>Stock</th>
-                <th>Company Name</th>
-                <th>Industry</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Total Value</th>
-                <th></th>
+                {this.state.tableTitles.map((t) => (
+                  <th key={t} onClick={() => onSort(t)}>
+                    {t}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
