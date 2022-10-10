@@ -3,7 +3,7 @@ import "./thirdFloor.css";
 
 class ThirdFloor extends Component {
   render() {
-    const { value, onSearch, onAdd, onOpen } = this.props;
+    const { value, onSearch, onOpen } = this.props;
     return (
       <div className="blocktocenter">
         <div className="third-floor">
@@ -17,7 +17,7 @@ class ThirdFloor extends Component {
               className="search"
               type="text"
               name="query"
-              value={value}
+              value={value.toUpperCase()}
               onChange={(e) => onSearch(e.currentTarget.value)}
             />
           </div>
