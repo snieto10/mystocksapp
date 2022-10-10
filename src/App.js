@@ -7,6 +7,7 @@ import AddStock from "./components/addStock";
 import Pagination from "./components/common/pagination";
 import { stocks } from "./components/service/stock";
 import { paginate } from "./utils/paginate";
+import _ from "lodash";
 import "./App.css";
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
     linesPerPage: 6,
     currentPage: 1,
     industry: "",
+    sortColumn: { path: "title", order: "asc" },
   };
 
   handleDelete = (sto) => {
@@ -48,24 +50,21 @@ class App extends Component {
     this.setState({ industry: "" });
   };
 
-  handleSort = (t) => {
-    const stock = [...this.state.stock];
-    stock.sort(function (a, b) {
-      if (a.stock < b.stock) return -1;
-      if (a.stock > b.stock) return 0;
-    });
-    console.log(t);
-    this.setState({ stock });
+  handleSort = (path) => {
+    this.setState({ sortColumn: { path, order: "asc" } });
   };
 
   render() {
-    const { stock, addStock, linesPerPage, currentPage, industry } = this.state;
+    const { stock, addStock, linesPerPage, currentPage, industry, sortColumn } =
+      this.state;
     const { handleDelete, handleOpen, handlePageChange, handleAddStock } = this;
 
     let filtering = stock;
     if (industry) filtering = stock.filter((fil) => fil.industry === industry);
 
-    let stocks = paginate(filtering, currentPage, linesPerPage);
+    const sorted = _.orderBy(filtering, [sortColumn.path], [sortColumn.order]);
+
+    let stocks = paginate(sorted, currentPage, linesPerPage);
 
     if (!addStock)
       return (

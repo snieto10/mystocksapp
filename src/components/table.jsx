@@ -2,17 +2,6 @@ import React, { Component } from "react";
 import "./table.css";
 
 class Table extends Component {
-  state = {
-    tableTitles: [
-      "Stock",
-      "Company Name",
-      "Industry",
-      "Qty",
-      "Price",
-      "Total Value",
-      "",
-    ],
-  };
   render() {
     const { stocks, onDelete, onSort } = this.props;
     return (
@@ -21,11 +10,13 @@ class Table extends Component {
           <table className="stock-list">
             <thead>
               <tr>
-                {this.state.tableTitles.map((t) => (
-                  <th key={t} onClick={() => onSort(t)}>
-                    {t}
-                  </th>
-                ))}
+                <th onClick={() => onSort("stock")}>Stock</th>
+                <th onClick={() => onSort("companyName")}>Company Name</th>
+                <th onClick={() => onSort("industry")}>Industry</th>
+                <th onClick={() => onSort("qty")}>Qty</th>
+                <th onClick={() => onSort("price")}>Price</th>
+                <th>Total Value</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
