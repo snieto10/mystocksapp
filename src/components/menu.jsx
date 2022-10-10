@@ -37,6 +37,6 @@ class Menu extends React.Component {
       </div>
     );
   }
-}
+} /* added domething to commit*/
 
 export default Menu;
