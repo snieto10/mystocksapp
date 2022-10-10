@@ -26,6 +26,9 @@ class AddStock extends React.Component {
       <div className="fullpage">
         <div className="addstock">
           <form className="box" onSubmit={this.handleSubmit}>
+            <div className="close" onClick={this.props.onOpen}>
+              x
+            </div>
             <input
               className="therealinput"
               type="text"
@@ -33,7 +36,7 @@ class AddStock extends React.Component {
               name="stock"
               placeholder="Sticker"
               onChange={this.handleChange}
-              value={this.state.newStock.stock}
+              value={this.state.newStock.stock.toLocaleUpperCase()}
             ></input>
             <br />
             <input

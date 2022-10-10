@@ -98,6 +98,7 @@ class App extends Component {
             onAdd={handleAddStock}
             value={searchQuery}
             onSearch={this.handleSearch}
+            onOpen={handleOpen}
           />
           <Menu onFilter={this.handleFilter} allFilter={this.handleAllfilter} />
           <Table
@@ -118,11 +119,12 @@ class App extends Component {
         <>
           <Title />
           <ThirdFloor
+            onOpen={handleOpen}
             onAdd={handleAddStock}
             value={searchQuery}
             onSearch={this.handleSearch}
           />
-          <AddStock onAdd={handleAddStock} />
+          <AddStock onAdd={handleAddStock} onOpen={handleOpen} />
           <Menu onFilter={this.handleFilter} allfilter={this.handleAllfilter} />
           <Table stocks={stocks} onDelete={handleDelete} />
           <Pagination
