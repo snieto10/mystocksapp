@@ -10,7 +10,20 @@ class AddStock extends React.Component {
       qty: "",
       price: "",
     },
+    errors: {},
   };
+
+  validate = () => {
+    const errors = {};
+
+    const { newStock } = this.state;
+    if (newStock.stock.trim() === "") errors.stock = "Please add sticker";
+    if (newStock.companyName.trim() === "")
+      errors.companyName = "Please add Company Name";
+
+    return Object.keys(errors).length === 0 ? null : errors;
+  };
+
   handleChange = (e) => {
     let newStock = { ...this.state.newStock };
     newStock[e.currentTarget.name] = e.currentTarget.value;
@@ -19,6 +32,13 @@ class AddStock extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const errors = this.validate();
+    console.log(errors);
+    this.setState({ errors });
+    if (errors) return;
+
+    console.log("Submitted");
   };
   render() {
     let newStock = this.state.newStock;
@@ -80,12 +100,7 @@ class AddStock extends React.Component {
             ></input>
             <br />
             <div className="centel">
-              <button
-                onClick={() => this.props.onAdd(newStock)}
-                className="btn-input"
-              >
-                Add Stock
-              </button>
+              <button className="btn-input">Add Stock</button>
             </div>
           </form>
         </div>
