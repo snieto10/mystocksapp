@@ -3,11 +3,11 @@ import "./thirdFloor.css";
 
 class ThirdFloor extends Component {
   render() {
-    const { value, onSearch } = this.props;
+    const { value, onSearch, onAdd } = this.props;
     return (
       <div className="blocktocenter">
         <div className="third-floor">
-          <div className="add" onClick={this.props.onOpen}>
+          <div className="add" onClick={onAdd}>
             Add Stock
           </div>
           <div className="btn-search">Search</div>
