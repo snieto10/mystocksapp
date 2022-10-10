@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./thirdFloor.css";
 
 class ThirdFloor extends Component {
-  state = {};
   render() {
+    const { value, onSearch } = this.props;
     return (
       <div className="blocktocenter">
         <div className="third-floor">
@@ -16,6 +16,9 @@ class ThirdFloor extends Component {
               placeholder="Enter Stock Sticker"
               className="search"
               type="text"
+              name="query"
+              value={value}
+              onChange={(e) => onSearch(e.currentTarget.value)}
             />
           </div>
         </div>
