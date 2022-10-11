@@ -32,6 +32,7 @@ input::placeholder {
   outline: none;
   padding: 3px;
   margin: 5px;
+  display: block;
 }
 
 input:focus {
@@ -85,4 +86,15 @@ input:focus {
 .close {
   text-align: right;
   margin-top: 0;
+  cursor: pointer;
+}
+
+.alert {
+  border: 1px solid red;
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-radius: 3px;
 }

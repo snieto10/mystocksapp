@@ -21,7 +21,7 @@ class AddStock extends React.Component {
     if (newStock.companyName.trim() === "")
       errors.companyName = "Please add Company Name";
 
-    return Object.keys(errors).length === 0 ? null : errors;
+    return Object.keys(errors).length === 0 ? "" : errors;
   };
 
   handleChange = (e) => {
@@ -56,9 +56,11 @@ class AddStock extends React.Component {
               name="stock"
               placeholder="Sticker"
               onChange={this.handleChange}
-              value={this.state.newStock.stock.toLocaleUpperCase()}
+              value={this.state.newStock.stock.toUpperCase()}
             ></input>
-            <br />
+            {this.state.errors.stock && (
+              <div className="alert">{this.state.errors.stock}</div>
+            )}
             <input
               className="therealinput"
               type="text"
@@ -68,7 +70,9 @@ class AddStock extends React.Component {
               onChange={this.handleChange}
               value={this.state.newStock.companyName}
             ></input>
-            <br />
+            {this.state.errors.companyName && (
+              <div className="alert">{this.state.errors.companyName}</div>
+            )}
             <input
               className="therealinput"
               type="text"
@@ -78,7 +82,7 @@ class AddStock extends React.Component {
               onChange={this.handleChange}
               value={this.state.newStock.industry}
             ></input>
-            <br />
+
             <input
               className="therealinput"
               type="text"
@@ -88,7 +92,7 @@ class AddStock extends React.Component {
               onChange={this.handleChange}
               value={this.state.newStock.qty}
             ></input>
-            <br />
+
             <input
               className="therealinput"
               type="text"
@@ -98,9 +102,15 @@ class AddStock extends React.Component {
               onChange={this.handleChange}
               value={this.state.newStock.price}
             ></input>
-            <br />
+
             <div className="centel">
-              <button className="btn-input">Add Stock</button>
+              <button
+                className="btn-input"
+                onClick={() => this.props.onAdd(this.state.newStock)}
+              >
+                {" "}
+                Add Stock
+              </button>
             </div>
           </form>
         </div>

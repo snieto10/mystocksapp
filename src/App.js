@@ -27,11 +27,10 @@ class App extends Component {
   };
 
   handleAddStock = (newStock) => {
-    let addStock = this.state.addStock;
-    addStock = !addStock;
+    console.log(newStock);
     let stock = [...this.state.stock];
     stock.push(newStock);
-    this.setState({ stock, addStock });
+    this.setState({ stock });
   };
   handleOpen = () => {
     let addStock = this.state.addStock;
